@@ -1,0 +1,69 @@
+// $Id: $
+// File name:   i2c_slave.sv
+// Created:     2/28/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: i2c slave 
+
+module i2c_slave (
+  input wire clk,
+  input wire n_rst,
+  input wire scl,
+  input wire sda_in,
+  output reg sda_out,
+  input wire write_enable,
+  input wire [7:0] write_data,
+  output reg fifo_empty,
+  output reg fifo_full
+  );
+  
+  reg stopfound;
+  reg startfound;
+  reg byterec;
+  reg checkack;
+  reg ackprep;
+  reg ackdone;
+  reg addressmatch;
+  reg rwmode;
+  reg txen;
+  reg rxen;
+  reg [1:0] sdamode;
+  reg readen;
+  reg load_data;
+  reg [7:0] read_data;
+  reg rise_found;
+  reg fall_found;
+  reg txout;
+  reg [7:0] rxdata;
+  reg sda_sync;
+  reg scl_sync;
+  
+   
+  sync SCLSYN (.clk(clk), .n_rst(n_rst), .async_in(scl), .sync_out(scl_sync));
+  
+  sync SDASYN (.clk(clk), .n_rst(n_rst), .async_in(sda_in), .sync_out(sda_sync));
+  
+  
+  controller CONTROLLER (.clk(clk), .n_rst(n_rst), .stop_found(stopfound), .start_found(startfound), .byte_received(byterec), .check_ack(checkack), .ack_prep(ackprep), .ack_done(ackdone), .address_match(addressmatch), .rw_mode(rwmode), .tx_enable(txen), .rx_enable(rxen), .sda_in(sda_sync), .read_enable(readen), .sda_mode(sdamode), .load_data(load_data));
+  
+  
+  scl_edge SCL (.clk(clk), .n_rst(n_rst), .scl(scl_sync), .rising_edge_found(rise_found), .falling_edge_found(fall_found));
+  
+  sda_sel SDA (.tx_out(txout), .sda_mode(sdamode), .sda_out(sda_out));
+  
+  tx_fifo FIFO (.clk(clk), .n_rst(n_rst), .read_data(read_data), .read_enable(readen), .fifo_empty(fifo_empty), .fifo_full(fifo_full), .write_data(write_data), .write_enable(write_enable));
+  
+  decode DECODE (.clk(clk), .n_rst(n_rst), .sda_in(sda_sync), .scl(scl_sync), .starting_byte(rxdata), .rw_mode(rwmode), .address_match(addressmatch), .start_found(startfound), .stop_found(stopfound));
+  
+  rx_sr RX (.clk(clk), .n_rst(n_rst), .sda_in(sda_sync), .rising_edge_found(rise_found), .rx_enable(rxen), .rx_data(rxdata));
+  
+  tx_sr TX ( .clk(clk), .n_rst(n_rst), .tx_out(txout), .falling_edge_found(fall_found), .tx_enable(txen), .tx_data(read_data), .load_data(load_data));
+                 
+  timer TIMER (.clk(clk), .n_rst(n_rst), .start_found(startfound), .stop_found(stopfound), .rising_edge_found(rise_found), .falling_edge_found(fall_found), .byte_received(byterec), .check_ack(checkack), .ack_prep(ackprep), .ack_done(ackdone));
+  
+  
+
+endmodule
+  
+   

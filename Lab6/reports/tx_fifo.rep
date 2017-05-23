@@ -1,0 +1,116 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : tx_fifo
+Version: G-2012.06
+Date   : Sun Feb 22 19:21:27 2015
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: FI/URFC/raddr_reg[0]
+              (rising edge-triggered flip-flop)
+  Endpoint: read_data[7]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  FI/URFC/raddr_reg[0]/CLK (DFFSR)         0.00       0.00 r
+  FI/URFC/raddr_reg[0]/Q (DFFSR)           0.60       0.60 r
+  FI/URFC/raddr[0] (read_fifo_ctrl)        0.00       0.60 r
+  FI/UFIFORAM/raddr[0] (fiforam)           0.00       0.60 r
+  FI/UFIFORAM/U66/Y (INVX1)                0.34       0.95 f
+  FI/UFIFORAM/U59/Y (NAND3X1)              0.24       1.18 r
+  FI/UFIFORAM/U58/Y (INVX1)                0.65       1.83 f
+  FI/UFIFORAM/U10/Y (AOI22X1)              0.23       2.06 r
+  FI/UFIFORAM/U6/Y (NAND3X1)               0.02       2.08 f
+  FI/UFIFORAM/rdata[7] (fiforam)           0.00       2.08 f
+  FI/r_data[7] (fifo)                      0.00       2.08 f
+  read_data[7] (out)                       0.00       2.08 f
+  data arrival time                                   2.08
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : tx_fifo
+Version: G-2012.06
+Date   : Sun Feb 22 19:21:27 2015
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                           22
+Number of nets:                            22
+Number of cells:                            1
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          0
+Number of references:                       1
+
+Combinational area:       97200.000000
+Noncombinational area:    118656.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:          215856.000000
+Total area:                 undefined
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : tx_fifo
+Version: G-2012.06
+Date   : Sun Feb 22 19:21:28 2015
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+tx_fifo                                   4.390   14.284   63.927   18.674 100.0
+  FI (fifo)                               4.390   14.284   63.927   18.674 100.0
+    URFC (read_fifo_ctrl)              5.20e-02    2.242   13.466    2.294  12.3
+      RPU1 (read_ptr)                  2.78e-03    0.826    5.746    0.829   4.4
+    UWFC (write_fifo_ctrl)                1.004    3.564   13.547    4.568  24.5
+      WPU1 (write_ptr)                    0.359    1.767    5.746    2.126  11.4
+    UFIFORAM (fiforam)                    3.334    8.478   36.915   11.812  63.3
+1

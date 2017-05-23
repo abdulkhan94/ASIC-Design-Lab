@@ -1,0 +1,152 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/ecegrid/a/mg22/ece337/Lab2
+T_opt
+VddgA6e_aDUafl6f7E04J_2
+04 8 4 work sensor_s fast 0
+=1-000000000000-54be8fac-2b577-d66
+Z1 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.1b;51
+Z3 d/home/ecegrid/a/mg22/ece337/Lab2
+T_opt1
+VP`Ynk6OmAhP?O>Vo=ZhgW0
+04 10 4 work adder_4bit fast 0
+=1-000000000000-54c0546e-8d75c-17a8
+R1
+n@_opt1
+R2
+vadder_1bit
+Z4 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+!s100 oOkfKY@zg^EKbgQ]13YHE0
+IUDB;5V^VbVZ4<3HnL0dld2
+V2JLL>91Z<oU;X0S=zVjiK1
+!s105 adder_1bit_sv_unit
+S1
+R3
+w1421887019
+8/home/ecegrid/a/mg22/ece337/Lab2/source/adder_1bit.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/adder_1bit.sv
+L0 10
+Z5 OL;L;10.1b;51
+r1
+31
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/adder_1bit.sv|
+Z6 o-work work
+Z7 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverFEC 0 CoverShortCircuit 0
+!s108 1421887038.140364
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/adder_1bit.sv|
+!i10b 1
+!s85 0
+vadder_4bit
+R4
+ITLBbWS=EUA_eH;M=`UcH70
+V@mhn1a^gz_iGmjPCAlA]=2
+S1
+R3
+w1421888271
+8/home/ecegrid/a/mg22/ece337/Lab2/source/adder_4bit.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/adder_4bit.sv
+L0 8
+R5
+r1
+31
+R6
+R7
+!s100 Y;JUPgR0Z0DL[V=439kXL0
+!s105 adder_4bit_sv_unit
+!s108 1421888287.944001
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/adder_4bit.sv|
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/adder_4bit.sv|
+!i10b 1
+!s85 0
+vsensor_b
+R4
+IAZZ>^^P:jih7Z76I8VoVB0
+V51KLhX8lYK3I@F5LJDMn:0
+S1
+R3
+w1421776140
+8/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_b.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_b.sv
+L0 6
+R5
+r1
+31
+R6
+R7
+!s100 0ML^<>>AVSVJ1V8camS9e2
+!s105 sensor_b_sv_unit
+!s108 1421776156.872334
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/sensor_b.sv|
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_b.sv|
+!i10b 1
+!s85 0
+vsensor_d
+R4
+IDL6:`426j5km^N5^RDH631
+VF1XATih@`[^C21lb5b1oV3
+S1
+R3
+w1421775694
+8/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_d.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_d.sv
+L0 6
+R5
+r1
+31
+R6
+R7
+!s100 4nM=2nZRWklf;m`3fg<eP0
+!s105 sensor_d_sv_unit
+!s108 1421775710.934512
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/sensor_d.sv|
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_d.sv|
+!i10b 1
+!s85 0
+vsensor_s
+R4
+IC0hcm>jfOXcolC_5YeBlP3
+VAi;323keO>]GUoff9BcLl2
+S1
+R3
+w1421773988
+8/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv
+L0 3
+R5
+r1
+31
+R6
+R7
+!s105 sensor_s_sv_unit
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv|
+!s100 Hob2C>BUTX9]]Lbh:Ijz43
+!s108 1421774004.144554
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv|
+!i10b 1
+!s85 0
+vtb_adder_1bit
+R4
+!s100 C;RCJnHI11[gcaPSgECX>3
+IkVdMYUM@Rn4=HijBdBN]z0
+V63_5bmoGS[V<5z?1eC[Q<1
+!s105 tb_adder_4bit_sv_unit
+S1
+R3
+w1421889269
+8/home/ecegrid/a/mg22/ece337/Lab2/source/tb_adder_4bit.sv
+F/home/ecegrid/a/mg22/ece337/Lab2/source/tb_adder_4bit.sv
+L0 13
+R5
+r1
+31
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/tb_adder_4bit.sv|
+R6
+R7
+!s108 1421889294.023587
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/tb_adder_4bit.sv|
+!i10b 1
+!s85 0

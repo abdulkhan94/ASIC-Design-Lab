@@ -1,0 +1,53 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/ecegrid/a/mg22/ece337/Lab3
+T_opt
+VAH_E=TBP8Z3SPHo6nQUHG3
+04 15 4 work tb_flex_counter fast 0
+=1-000000000000-54d01aad-e9e1b-4a7c
+o-quiet -auto_acc_if_foreign -work mapped_work/ -Lf /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work
+n@_opt
+OL;O;10.1b;51
+vflex_counter
+IXT3FL_n@1Y=nfNQETELFg0
+VXg12mjHb8nnae9jZVe7111
+Z1 d/home/ecegrid/a/mg22/ece337/Lab3
+w1422924455
+8mapped/flex_counter.v
+Fmapped/flex_counter.v
+L0 2
+Z2 OL;L;10.1b;51
+r1
+31
+Z3 o-work mapped_work
+Z4 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverFEC 0 CoverShortCircuit 0
+!s100 QaOHN5[Z136i;F[X]]T<L0
+!s108 1422924457.522201
+!s107 mapped/flex_counter.v|
+!s90 -work|mapped_work|mapped/flex_counter.v|
+!i10b 1
+!s85 0
+vtb_flex_counter
+Z5 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+IXaBb7g:jbYLToN5kMYPCZ3
+V?Tg@IiaQ18XcMf;BUMODJ1
+S1
+R1
+w1422922789
+8source/tb_flex_counter.sv
+Fsource/tb_flex_counter.sv
+L0 11
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 hlZ2_agAARnO9W3Baa5[11
+!s105 tb_flex_counter_sv_unit
+!s85 0
+!s108 1422924457.618131
+!s107 source/tb_flex_counter.sv|
+!s90 -work|mapped_work|source/tb_flex_counter.sv|

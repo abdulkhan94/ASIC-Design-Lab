@@ -1,0 +1,27 @@
+                              Teamwork Report
+Me: Parneet Kaur Ahuja -> 5
+Diti Bhatnagar -> 5
+Nishtha Sinha -> 5
+
+2, 3, 4.
+Me : I contributed towards the understanding of state transition diagram of RCU as how the parameters would change in different states. 
+Also, Diti and Nishtha had one less state as they were merging the sbc enable and framing error into one but as the TA explained to me 
+that they should be different because of time delay, I explained it to them. Also, diti was getting error while simulating the code as 
+she had sent 0 as clear to flex counters but I figured out the mistake and suggested her to use packet_done instead. Also I helped her 
+to figure out the mistake as half of her cases were not working. She had used n_reset instead of n_rst. Moreover, I helped nishtha in 
+debuging her code as she was getting a latch as she forgot to include the default case in rcu code.
+
+Diti: This team member made a sincere effort to contribute to the team and I was able to learn and understand some parts much better.
+She helped us in getting the RTL diagram of RCU correct and also explained us the parts which were not clear to me. She also explained how to 
+use typedef enum method to define states as I was not sure of it. Also, while simulating I was getting errors as I forgot to make changes in
+makefile, she figured it out and after that everything was working fine. Also, I was getting error as I forgot to include count_out port connected
+for flex counter, she helped to figure it out.
+
+Nishtha: This team member made a sincere effort to contribute to the team. She worked with us on the RTL diagram and state transition diagram for RCU.
+She explained the role of shift_strobe as it acts as an enable for the second flex counter. Moreover, I was using default parameter to change the NUM_BITS
+and the SHIFT_MSB for flex_stp_sr but she taught that I can directly change in the file as this file is not used in any other place and do not need to use
+default parameter.
+
+3. We met on Thursday for the initial preparation, understanding the code and making the RTL and state transition diagrams. Then we met on Sunday as we
+had some issues with the code and could not understand by ourself. We used to text each other and fix the meeting times.
+

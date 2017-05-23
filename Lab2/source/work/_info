@@ -1,0 +1,34 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/ecegrid/a/mg22/ece337/Lab2/source
+T_opt
+Z1 VU<;GWFbYINzb_S:nddcfV0
+Z2 04 8 4 work sensor_s fast 0
+Z3 =1-000000000000-54be899b-51f55-952
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OL;O;10.1b;51
+Z7 d/home/ecegrid/a/mg22/ece337/Lab2/source
+vsensor_s
+Z8 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+!i10b 1
+Z9 !s100 b52O1G[D;T;Eih^jMzIz;2
+Z10 I7]Lb`ViC@P^R<RJPHDLEO1
+Z11 VM[YXYQO3k?h6N<9>5le`33
+Z12 !s105 sensor_s_sv_unit
+S1
+R7
+Z13 w1421773009
+Z14 8/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv
+Z15 F/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv
+L0 3
+Z16 OL;L;10.1b;51
+r1
+!s85 0
+31
+!s108 1421773301.275118
+!s107 /home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv|
+Z17 !s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg22/ece337/Lab2/source/sensor_s.sv|
+Z18 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF

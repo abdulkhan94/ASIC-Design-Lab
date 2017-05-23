@@ -1,0 +1,7 @@
+// $Id: $
+// File name:   tb_avg_four.sv
+// Created:     2/10/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: average four test bench

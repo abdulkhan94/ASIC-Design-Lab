@@ -1,0 +1,88 @@
+//Pseudo Code
+
+
+reg [3:0] count;
+reg fl;
+reg clear;
+
+typedef enum logic {idle,cnt, prep, check, done} statetype;
+
+flex_counter flex1 (.clk(clk), .n_rst(n_rst), .count_enable(rising_edge_found), .rollover_val(4'b1000), .rollover_flag(fl), clear(clear) , count_out(count));
+
+statetype state;
+statetype nxtstate;
+
+
+
+// Next state logic
+
+always_comb @ (state)
+begin
+ 
+ nxtstate = state;
+
+byte_received = 1'b0;
+  ack_prep = 1'b0;
+  check_ack = 1'b0;
+  ack_done = 1'b0;
+  clear = 1'b0;
+
+  case(state)
+    idle: begin
+      if (start_found == 1'b1) begin
+        nxtstate = cnt;
+        clear = 1'b1;
+    end
+    cnt: begin
+      if (flag == 1'b1) begin
+        nxtstate = prep;
+        byte_received = 1'b1;
+        clear = 1'b1;
+      end 
+	else begin
+        nxtstatestate = cnt;
+        clear = 1'b0;
+        byte_received = 1'b0;
+      end  
+    end
+    prep: begin
+      if( falling_edge_found == 1'b1) begin
+        nxtstate = check;
+        ack_prep = 1'b1;
+      end
+    end
+    check: begin
+      if( rising_edge_found == 1'b1) begin
+        nxtstate = done;
+        check_ack = 1'b1;
+      end
+    end
+    done: begin
+      if( falling_edge_found == 1'b1) begin
+        nxtstate = cnt;
+        ack_done = 1'b1;
+        clear =1'b1;
+      end
+    end
+  endcase
+
+  if(stop_found = 1'b1) begin
+    nxtstate = idle;
+  end
+    
+end
+
+//flip flop that determines the state at the rising edge of the clock
+always_ff @ (posedge clk, negedge n_rst)
+begin
+  
+if(!n_rst) begin
+    state <= 1'b0;
+    end 
+else begin
+
+    state <= nxtstate;
+    end
+end
+
+endmodule

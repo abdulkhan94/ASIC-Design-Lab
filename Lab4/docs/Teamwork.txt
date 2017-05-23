@@ -1,0 +1,27 @@
+              Team Work Report
+
+Me : 5
+Diti Bhatnagar : 4
+Nishtha Sinha : 3
+
+
+We collaborated on the logic used for the lab and shared ideas as how to solve the designed problem.
+We also collaborated on the RTL diagram for the controller.
+
+We met 3 times during the week that is Thursday, Saturday and Monday. We used to text each other to decide about the meeting times.
+
+
+We helped each other in understanding the code better and find the problems occuring like in Diti case flex counter from previous lab was
+wrongly copied and it caused synthesis problem during mapping. I figured it out and helped her solve the problem.
+
+I contributed towards the RTL diagrams, schematics and helped in debugging some of the minor problems in the code like error loading designs, port mapping.
+
+Diti contributed towards designing mealy and moore and thus we learned that moore models are better. Also, she 
+helped me debug some minor problems in my avg_four code as I wrongly spelled some of the parameters.
+
+Nishtha conntributed toward understanding the shift by 2 for divide by 4 block and in general helped with the initial part of the counter code and using the defparam declaration.
+
+I learned a lot from this collaboration, it expanded my knowledge, some parts which were not clear earlier became clear as we progressed. Also,
+I learned the different ways of thinking to solve a particular problem. I improved at debugging the code while helping them and also understand 
+how to read the waveforms better.  Moreover, coding became fun while working with teammates. 
+ 

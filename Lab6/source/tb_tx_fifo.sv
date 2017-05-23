@@ -1,0 +1,127 @@
+// $Id: $
+// File name:   tb_tx_fifo.sv
+// Created:     2/22/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: tx_fifo test bench
+
+`timescale 1ns / 10ps
+
+module tb_tx_fifo();
+	localparam	CLK_PERIOD	= 10;
+	localparam CHECK_DELAY = 2.5;
+	reg tb_clk;
+	
+
+	
+	integer tb_test_num;
+	reg tb_n_rst;
+	reg [7:0] tb_read_data;
+	reg [7:0] tb_write_data;
+	reg tb_read_enable;
+	reg tb_write_enable;
+	reg tb_fifo_full;
+	reg tb_fifo_empty;
+	
+	
+// DUT portmaps
+	tx_fifo DEFAULT
+	(
+	  .clk(tb_clk),
+	  .n_rst(tb_n_rst),
+	  .read_enable(tb_read_enable),
+	  .write_enable(tb_write_enable),
+	  .fifo_full(tb_fifo_full),
+	  .fifo_empty(tb_fifo_empty),
+	  .read_data(tb_read_data),
+	  .write_data(tb_write_data)
+	);
+	
+	// Clock generation block for clk
+	always
+	begin
+		tb_clk = 1'b0;
+		#(CLK_PERIOD/2.0);
+		tb_clk = 1'b1;
+		#(CLK_PERIOD/2.0);
+	end
+	
+	
+	initial
+	begin
+ 		
+		
+		// Test 1: Check for ideal reset
+	
+		tb_test_num =  1;
+		
+		tb_n_rst = 0;
+		tb_write_enable =0;
+		tb_read_enable = 0;
+		#(CHECK_DELAY);
+		if ((1'b1 == tb_fifo_empty && 1'b0 == tb_fifo_full)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+		
+		// Test 2:
+		tb_test_num = 2;
+	  tb_n_rst = 1'b1;
+	  tb_write_enable = 1'b1;
+	  tb_write_data = 8'b11110000;
+	  
+		#(8*CLK_PERIOD);
+		if ((1'b1 == tb_fifo_full)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+		
+		// Test 3
+		tb_test_num = 3;
+	  tb_read_enable = 1'b1;
+	  tb_write_data = 8'b01011111;
+	  tb_write_enable = 1'b0;
+	  #(CLK_PERIOD);
+	  #(CHECK_DELAY);
+	  if ((8'b11110000 == tb_read_data)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+		#(CLK_PERIOD);
+		
+		if ((8'b11110000 == tb_read_data)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+		#(6*CLK_PERIOD);
+		
+		if ((1'b1 == tb_fifo_empty)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+		
+		// Test 4
+		
+		tb_test_num = 4;
+	  tb_read_enable = 1'b0;
+	  tb_write_data = 8'b10101010;
+	  tb_write_enable = 1'b1;
+	  #(8*CLK_PERIOD);
+		#(CHECK_DELAY)
+		if ((1'b1 == tb_fifo_full)) begin
+			$info("Default Test Case %0d:: PASSED", tb_test_num);
+		end else begin // Test case failed
+			$error("Default Test Case %0d:: FAILED", tb_test_num);
+		end
+	
+		end
+		endmodule
+		
+		
+		

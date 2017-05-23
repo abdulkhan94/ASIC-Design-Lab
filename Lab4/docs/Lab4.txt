@@ -1,0 +1,35 @@
+Postlab Questions
+
+
+Answer 1: Data ready must be asserted for at least 2 clock cycles that is 20 ns.
+
+Answer 2:    Pseudo Code
+
+idle : if (data_ready = 0) goto idle; wait until data_ready = 1
+store : if (data_ready = 0) goto eidle
+	reg[5] = data       ;Store data in a register
+	err = 0
+sort1: reg[1] = reg[2]     ;Reoder registers
+sort2: reg[2] = reg[3]
+sort3: reg[3] = reg[4]
+sort4: reg[4] = reg[5]
+add1: reg[0] = reg[1]*reg[2]
+add2: reg[6 = reg[3]*reg[0]
+add3: reg[7]= reg[4]*reg[6]
+	if (V) goto eidle
+		goto idle
+eidle: err = 1
+	if(data_ready = 1) goto store     ;wait until data is ready
+	if(data_ready = 0) goto eidle
+
+
+Answer 3:
+	The filtered image is blurred as compared to the original as it average out the adjacent four pixels and hence makes it clarity low.
+
+Answer 4:
+	in_file = $fopen(INPUT_FILENAME, "rb");
+
+Answer 5:
+	character(c), float(f),hexadecimal(h), binary(b), decimal(d), octal(o), string(s)
+
+                              

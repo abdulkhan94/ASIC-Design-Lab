@@ -1,0 +1,54 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/ecegrid/a/mg32/Desktop/project/hardware
+T_opt
+V5>=@gijK=IY4jS55W5`Ue0
+04 12 4 work tb_top_level fast 0
+=1-000000000000-553ec261-a5289-1644
+o-quiet -auto_acc_if_foreign -work source_work/ -L /home/ecegrid/a/ece337/Class0.5u/ECE337_IP/vsim -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB -Lf /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work
+n@_opt
+OL;O;10.1b;51
+vtb_top_level
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+IeA5FC=Jf1f=M_HXl3j=8g1
+V_g3P`fi9T[Jf:@=L?0]Zo2
+S1
+Z2 d/home/ecegrid/a/mg32/Desktop/project/hardware
+w1430176310
+8source/tb_top_level.sv
+Fsource/tb_top_level.sv
+L0 3
+Z3 OL;L;10.1b;51
+r1
+31
+Z4 o-work source_work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 WV[?@CHNffMYOXczaU=;Y1
+!s105 tb_top_level_sv_unit
+!s85 0
+!s108 1430176349.416988
+!s107 source/tb_top_level.sv|
+!s90 -work|source_work|source/tb_top_level.sv|
+vtop_level
+R1
+I0dkK:03MM@NE0S=C^<`[@0
+VI9k[am_fW6]=RS>kMCWgF3
+S1
+R2
+w1430175007
+8source/top_level.sv
+Fsource/top_level.sv
+L0 1
+R3
+r1
+31
+R4
+!s100 nP;d280QNEdQ9e74lVaLo1
+!s105 top_level_sv_unit
+!s108 1430176349.296166
+!s107 source/top_level.sv|
+!s90 -work|source_work|source/top_level.sv|
+!i10b 1
+!s85 0

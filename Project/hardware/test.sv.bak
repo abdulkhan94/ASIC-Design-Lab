@@ -1,0 +1,417 @@
+module test #(
+	
+	parameter DATAWIDTH = 32 
+)    // DATAWIDTH specifies the data width. Default 32 bits
+	
+(	
+	input wire  clk,
+        input wire  reset_n,
+	input wire start_byte,
+	output reg stop_byte,
+       
+        
+        input wire  master_readdatavalid,
+        input wire  master_waitrequest
+);
+
+parameter BYTEENABLEWIDTH = 4;  //Used to increment the address by 4
+
+
+
+
+
+reg [DATAWIDTH-1:0] nextRead_data, read_data;
+reg [DATAWIDTH-1:0] nextData, wr_data;
+
+typedef enum {IDLE, INI_READ,INI_READ1,INI_READ2,ADDR_LOAD,FIRST_READ_REQ,FIRST_READ_DATA,FIRST_READ_DATA1,PIXEL_WAIT,PIXEL_WRITE,PIXEL_WRITE1,ADDR_INC} state_t;
+state_t state, nextState;
+  	reg [3:0] i; 
+	reg [3:0] next_i;
+	reg [3:0] next_j;
+  	reg [3:0] j;
+   
+  	reg [15:0] sample1;
+   	reg [15:0] sample2;
+    	reg [15:0] sample3;
+    	reg [15:0] sample4;
+    	reg [15:0] sample5;
+    	reg [15:0] sample6;
+    	reg [15:0] sample7;
+    	reg [15:0] sample8;
+    	reg [15:0] next_sample1;
+    	reg [15:0] next_sample2;
+    	reg [15:0] next_sample3;
+    	reg [15:0] next_sample4;
+    	reg [15:0] next_sample5;
+    	reg [15:0] next_sample6;
+    	reg [15:0] next_sample7;
+    	reg [15:0] next_sample8;
+    	
+
+    	reg [15:0] out1;
+    	reg [15:0] out2;
+    	reg [15:0] out3;
+    	reg [15:0] out4;
+    	reg [15:0] out5;
+    	reg [15:0] out6;
+    	reg [15:0] out7;
+    	reg [15:0] out8;
+ 	
+
+	reg [15:0] master_writedata; 
+   
+   
+
+   
+   
+
+   
+
+
+reg w_buffer_load,w_buffer_clear;
+reg w_addr_load;
+
+reg w_flag_clear;
+reg [31:0] w_load_size;
+
+reg w_output_load;
+
+
+ top_level FIRST(
+	//inputs
+	.clk(clk),
+	.n_rst(reset_n),
+	.sample1(sample1),
+	 .sample2(sample2),
+       	.sample3(sample3),
+	.sample4(sample4),
+	.sample5(sample5),
+	.sample6(sample6),
+	.sample7(sample7),
+	.sample8(sample8),
+		    
+		    
+	.buffer_clear(w_buffer_clear),
+
+	.w_load_size(w_load_size),	    
+	
+	.w_flag_clear(w_flag_clear),
+	.w_output_load(w_output_load),
+	
+//	.w_done(w_done),
+	.w_wav_done(w_wav_done),
+	.data_out1(out1),
+	.data_out2(out2),
+       .data_out3(out3),
+      .data_out4(out4),
+      .data_out5(out5),
+      .data_out6(out6),
+     .data_out7(out7),
+     .data_out8(out8)
+		    
+);
+
+
+
+
+
+
+
+always_ff @ ( posedge clk ) begin 
+	if (!reset_n) begin 
+		
+		state <= IDLE;
+		read_data <= 32'hFEEDFEED;  
+		i <= 0;
+		j <= 0;
+		sample1 <= '0;
+		sample2 <= '0;
+		sample3 <= '0;
+		sample4 <= '0;
+		sample5 <= '0;
+		sample6 <= '0;
+		sample7 <= '0;
+		sample8 <= '0;
+		
+	end else begin 
+		state <= nextState;
+		
+		read_data <= nextRead_data;
+		i <= next_i;
+		j <= next_j;
+		sample1 <= next_sample1;
+		sample2 <= next_sample2;
+		sample3 <= next_sample3;
+		sample4 <= next_sample4;
+		sample5 <= next_sample5;
+		sample6 <= next_sample6;
+		sample7 <= next_sample7;
+		sample8 <= next_sample8;
+	end
+end
+reg debug_flag;
+
+// Next State Logic 
+always_comb begin 
+	nextState = state;
+	
+	nextRead_data = read_data;
+	debug_flag = 0;
+	case( state ) 
+		IDLE: begin
+			
+			debug_flag = 1;
+			if (start_byte) begin //slave_address = 0 for start/sfirst byte
+//			if (csr_registers[0] == START_BYTE && !n_action) begin //slave_address = 0 for start/sfirst byte
+				nextState = INI_READ;
+			end
+		end
+//THIS REQUIRES APP.C FIRST 
+		INI_READ: begin  //read slave register and load info into ImageSpecReg
+			nextState = INI_READ1;
+			debug_flag = 2;
+			nextRead_data = 256;
+			
+		end
+		INI_READ1: begin
+			nextState = INI_READ2;
+			debug_flag = 3;
+			
+		end
+		INI_READ2: begin
+			nextState = ADDR_LOAD;
+			debug_flag = 4;
+		
+		end
+		ADDR_LOAD: begin
+			nextState = FIRST_READ_REQ;
+			debug_flag = 5 ;
+		end
+		FIRST_READ_REQ: begin
+			if (!master_waitrequest) begin
+				nextState = FIRST_READ_DATA;
+			 	debug_flag = 6 ;
+			end
+		end
+		FIRST_READ_DATA: begin
+			if ( master_readdatavalid) begin
+				nextRead_data = 59;
+				nextState = FIRST_READ_DATA1;
+			 	debug_flag = 7 ;
+			end
+		end // case: FIRST_READ_DATA
+	 	 FIRST_READ_DATA1: begin
+	 	    if(w_buffer_load) begin
+	 	       nextState = PIXEL_WAIT;
+	 	    end
+	 	    else begin
+	 	       nextState = FIRST_READ_REQ;
+	 	      
+	 	    end
+	 	 end
+		PIXEL_WAIT: begin
+			 	debug_flag = 8 ;
+		   if(w_output_load) begin
+			nextState = PIXEL_WRITE;
+		   end
+		end
+		PIXEL_WRITE: begin
+			if (!master_waitrequest) begin
+				if (w_wav_done == 1/*address == 32'h08600000*/) begin
+					nextState = IDLE;  //slave module takes care of writing sfirstbyte
+					
+				end 
+			
+			else begin
+   				nextState = PIXEL_WRITE1;
+			end		
+		end // case: PIXEL_WRITE
+		end
+	  	PIXEL_WRITE1: begin
+	  	  if(w_wav_done == 1) begin
+	  	    nextState = IDLE;
+	  	   end
+	  	   if(w_flag_clear) begin
+	  	      nextState = ADDR_INC;
+	  	   end
+	  	   else begin
+	  	       
+	  	        nextState = PIXEL_WRITE;
+	  	   end
+	  	 end
+		ADDR_INC: begin
+			
+			nextState = FIRST_READ_REQ;			
+			 debug_flag = 11 ;
+		end	
+	endcase
+end
+
+// Output Logic 
+
+always_comb begin 
+	//master_write = 1'b0;
+	//master_read = 1'b0;
+	//master_writedata = 32'h0;
+	//master_address = 32'hdeadbeef;
+	
+	w_flag_clear = 1'b0;
+//	w_output_load = 1'b0;
+
+
+	w_buffer_load = 0;
+	w_buffer_clear = 0;
+	w_load_size = 0;
+	next_i = i;
+	next_j = j;
+	next_sample1 = sample1;
+	next_sample2 = sample2;
+	next_sample3 = sample3;
+	next_sample4 = sample4;
+	next_sample5 = sample5;
+	next_sample6 = sample6;
+	next_sample7 = sample7;
+	next_sample8 =sample8 ;
+
+
+	
+	
+	case(state) 
+		IDLE: begin
+		
+			w_flag_clear = 0;
+		  // i = 0;
+		   
+		end
+		INI_READ: begin  //read slave register and load info into ImageSpecReg
+		   	w_load_size = nextRead_data;
+		end
+		INI_READ1: begin
+		//	w_load_size = nextRead_data;
+		end
+		INI_READ2: begin
+		//w_load_size = 1;
+		end
+		
+		ADDR_LOAD: begin
+		//	w_addr_load = 1;
+		   next_i = 0;
+		   
+		end
+	
+		FIRST_READ_REQ: begin
+			//w_buffer_load = 1; //load second data into pixel register
+			//master_address = r_address;
+			//master_read = 1;
+		 
+
+		   
+		end
+		FIRST_READ_DATA1: begin
+		   next_j = 0;
+		   
+		     if(next_i == 0) begin
+		      next_sample1 = nextRead_data[15:0];
+		   end
+		   else if (next_i == 1) begin
+		      next_sample2 = nextRead_data[15:0];
+		   end
+		   else if (next_i == 2) begin
+		     next_sample3 = nextRead_data[15:0];
+		   end
+		     else if (next_i == 3) begin
+		      next_sample4 = nextRead_data[15:0];
+		     end
+		     else if (next_i == 4) begin
+		      next_sample5 = nextRead_data[15:0];
+		     end
+		    else if (next_i == 5) begin
+		      next_sample6 = nextRead_data[15:0];
+		    end
+		    else if (next_i == 6) begin
+		      next_sample7 = nextRead_data[15:0];
+		    end
+		    else if (next_i == 7) begin
+		      next_sample8 = read_data[15:0];
+		       //i = 0;
+		       
+			   w_buffer_load = 1;
+
+		       
+		    end
+		   next_i = i+ 1;
+		   
+
+		end // case: FIRST_READ_DATA
+	  FIRST_READ_DATA: begin
+	     //w_buffer_load = 1;
+	     end
+		PIXEL_WAIT: begin
+			w_buffer_load = 0; //load first data into pixel register and allow arith to compute the result
+			//w_count_enable = 1;
+			w_buffer_clear = 1;
+			
+		end
+		
+	
+		
+		PIXEL_WRITE1: begin
+			if(w_wav_done == 1) begin
+			  stop_byte = 1;
+			  end
+			  
+			
+		   if(next_j == 0) begin
+		      master_writedata = out1;
+		   end
+		   else if(next_j == 1) begin
+		     master_writedata = out2;
+
+		end
+	   else if(next_j == 2) begin
+		     master_writedata = out3;
+
+		end
+	   else if(next_j == 3) begin
+		     master_writedata = out4;
+
+		end
+	   else if(next_j == 4) begin
+		     master_writedata = out5;
+
+		end
+	   else if(next_j == 5) begin
+		     master_writedata = out6;
+
+		end
+	   else if(next_j == 6) begin
+		     master_writedata = out7;
+
+		end
+	   else if(next_j == 7) begin
+		     master_writedata = out8;
+	      w_flag_clear = 1;
+	      
+            end // UNMATCHED !!
+		   next_j = j+ 1;
+		   
+
+	  
+	  
+			
+		end
+	PIXEL_WRITE: begin
+	   
+end	
+		ADDR_INC: begin
+			next_i = 0;
+		end
+				
+	endcase
+end
+
+
+endmodule
+
+
+

@@ -1,0 +1,38 @@
+Coverage Report Summary Data by instance
+
+Total Coverage By Instance (filtered view): 58.2%
+
+Instance: /tb_tx_fifo/DEFAULT/FI
+Design Unit: /home/ecegrid/a/ece337/Class0.5u/ECE337_IP/vsim.fifo(rtl)
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        0         0         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    Toggle Bins                 46        29        17      63.0
+
+Instance: /tb_tx_fifo/DEFAULT
+Design Unit: work.tx_fifo
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        0         0         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 20         8        12      40.0
+
+Instance: /tb_tx_fifo
+Design Unit: work.tb_tx_fifo
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       40        34         6      85.0
+    Branches                    12         6         6      50.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                108        32        76      29.6
+

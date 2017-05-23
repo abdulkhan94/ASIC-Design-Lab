@@ -1,0 +1,29 @@
+Quartus II Archive log --	/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/master_example.qarlog
+
+Archive:	/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/master_example.qar
+Date:		Sun May  3 18:02:14 2015
+Quartus II 32-bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.atm
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.cfm
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.cmp.kpt
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.dpi
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.hdbx
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.logdb
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.map.kpt
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.qxp_info
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.rcf
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.cmp.scidsc
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.atm
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.dpi
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.hdbx
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.logdb
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.map.kpt
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.qxp_info
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/master_example.map.scidsc
+/home/ecegrid/a/mg22/Desktop/projectfpga/hardware/db/tmp_qic_export_dir/qic_export_file_list
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

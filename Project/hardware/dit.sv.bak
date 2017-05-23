@@ -1,0 +1,48 @@
+module dit
+  (
+  input wire clk,
+input wire reset,
+input wire start,
+input wire [15:0] sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8,
+//output reg done1,
+output reg [23:0] a2,b2,c2,d2,e2,f2,g2,h2,i2,j2,k2,l2,m2,n2,o2,p2
+);
+
+reg [23:0] a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p;
+reg [23:0] a1,b1,c1,d1,e1,f1,g1,h1,i1,j1,k1,l1,m1,n1,o1,p1;
+reg [15:0] cos1, cos3, cos4;
+reg [15:0] cos2;
+reg [15:0] sin1, sin3, sin4;
+reg [15:0] sin2;
+reg w1, w2, w3, w4;
+
+	 
+//cordic cd1 (.cosine(cos1), .sine(sin1), .done(w1), .angle(32'b00100000000000000000000000000000),  .clock(clk), .reset(reset), .start1(1), .start2(0));
+//cordic cd2 (.cosine(cos2), .sine(sin2), .done(w2), .angle(32'b10100000000000000000000000000000),  .clock(clk), .reset(reset), .start1(1), .start2(0) );
+//cordic cd3 (.cosine(cos3), .sine(sin3), .done(w3), .angle('0), .clock(clk), .reset(reset), .start1(1), .start2(0));
+//cordic cd4 (.cosine(cos4), .sine(sin4), .done(w4), .angle(32'b00000000000001100100100001111101), .clock(clk), .reset(reset), .start1(1), .start2(0));
+
+butterfly bt1(.reset(reset), .Xar(1.029), .Xai('0), .Xbr(0.046), .Xbi('0), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(a), .Yai(b), .Ybr(c), .Ybi(d));
+butterfly bt2(.reset(reset), .Xar(1.046), .Xai('0), .Xbr(0.087), .Xbi('0), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(e), .Yai(f), .Ybr(g), .Ybi(h));
+butterfly bt3(.reset(reset), .Xar(0.087), .Xai('0), .Xbr(1.033), .Xbi('0), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(i), .Yai(j), .Ybr(k), .Ybi(l));
+butterfly bt4(.reset(reset), .Xar(0.046), .Xai('0), .Xbr(1.002), .Xbi('0), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(m), .Yai(n), .Ybr(o), .Ybi(p));
+
+
+butterfly bt5(.reset(reset), .Xar(a[23:8]), .Xai(b[23:8]), .Xbr(e[23:8]), .Xbi(f[23:8]), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(a1), .Yai(b1), .Ybr(c1), .Ybi(d1));
+butterfly bt6(.reset(reset), .Xar(c[23:8]), .Xai(d[23:8]), .Xbr(g[23:8]), .Xbi(h[23:8]), .cos(7'b0000000), .sin(7'b0011111), .clk(w1), .Yar(e1), .Yai(f1), .Ybr(g1), .Ybi(h1));
+butterfly bt7(.reset(reset), .Xar(i[23:8]), .Xai(j[23:8]), .Xbr(m[23:8]), .Xbi(n[23:8]), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(i1), .Yai(j1), .Ybr(k1), .Ybi(l1));
+butterfly bt8(.reset(reset), .Xar(k[23:8]), .Xai(l[23:8]), .Xbr(o[23:8]), .Xbi(p[23:8]), .cos(7'b0000000), .sin(7'b0011111), .clk(w1), .Yar(m1), .Yai(n1), .Ybr(o1), .Ybi(p1));
+
+
+
+butterfly bt9(.reset(reset), .Xar(a1[23:8]), .Xai(b1[23:8]), .Xbr(i1[23:8]), .Xbi(j1[23:8]), .cos(7'b0011111), .sin(7'b0000000), .clk(w1), .Yar(a2), .Yai(b2), .Ybr(i2), .Ybi(j2));
+butterfly bt10(.reset(reset), .Xar(e1[23:8]), .Xai(f1[23:8]), .Xbr(m1[23:8]), .Xbi(n1[23:8]), .cos(7'b0011111), .sin(7'b0011111), .clk(w1), .Yar(c2), .Yai(d2), .Ybr(k2), .Ybi(l2));
+butterfly bt11(.reset(reset), .Xar(c1[23:8]), .Xai(d1[23:8]), .Xbr(k1[23:8]), .Xbi(l1[23:8]), .cos(7'b0000000), .sin(7'b0011111), .clk(w1), .Yar(e2), .Yai(f2), .Ybr(m2), .Ybi(n2));
+butterfly bt12(.reset(reset), .Xar(g1[23:8]), .Xai(h1[23:8]), .Xbr(o1[23:8]), .Xbi(p1[23:8]), .cos(7'b0011111), .sin(7'b1011111), .clk(w1), .Yar(g2), .Yai(h2), .Ybr(o2), .Ybi(p2));
+
+//assign done1 = 1;
+
+
+
+
+endmodule

@@ -1,0 +1,225 @@
+// $Id: $
+// File name:   controller.sv
+// Created:     2/9/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: controller
+ module controller
+ #(
+ parameter [3:0] EIDLE = 4'b0001, 
+ IDLE = 4'b0000,
+ STORE = 4'b0010, 
+ SORT1 = 4'b0011, 
+ SORT2 = 4'b0100, 
+ SORT3 = 4'b0101, 
+ SORT4 = 4'b0110, 
+ ADD1 = 4'b0111, 
+ ADD2 = 4'b1000, 
+ ADD3 = 4'b1001
+ )
+ 
+ (
+   input wire clk,
+   input wire n_reset,
+   input wire dr,
+   input wire overflow,
+   output reg cnt_up,
+   output reg modwait,
+   output reg [1:0] op,
+   output reg [3:0] src1,
+   output reg [3:0] src2,
+   output reg [3:0] dest,
+   output reg err
+   );
+   
+   reg [3:0] state;
+   reg[3:0] nxtstate;
+   reg nxtm;
+   reg terr = 1'b0;
+   
+   
+   always_ff @ (posedge clk, negedge n_reset)
+   begin
+     if(!n_reset) begin
+       state <= IDLE;
+       modwait <= 1'b0;
+       err <= 1'b0;
+     end 
+   else begin
+     state <= nxtstate;
+     modwait <= nxtm;
+     err <= terr;
+   end
+ end
+ 
+ always_comb
+ begin
+   case(state)
+     IDLE: begin
+       if(dr == 1'b1) begin
+         nxtstate = STORE;
+       end 
+     else begin
+       nxtstate = IDLE;
+     end
+   end
+   STORE: begin
+     if(dr == 1'b1) begin
+       nxtstate = SORT1;
+     end
+   else begin
+     nxtstate = EIDLE;
+   end
+ end
+ SORT1: begin
+   nxtstate = SORT2;
+ end
+ SORT2: begin
+   nxtstate = SORT3;
+ end
+ SORT3: begin
+   nxtstate = SORT4;
+ end
+ SORT4: begin
+   nxtstate = ADD1;
+ end
+ ADD1: begin
+   if(overflow == 1'b0) begin
+     nxtstate = ADD2;
+   end
+ else begin
+   nxtstate = EIDLE;
+ end
+ end
+ ADD2: begin
+   if(overflow == 1'b0) begin
+     nxtstate = ADD3;
+   end
+ else begin
+   nxtstate = EIDLE;
+ end
+ end
+ ADD3: begin
+   if(overflow == 1'b0) begin
+     nxtstate = IDLE;
+   end
+ else begin
+   nxtstate = EIDLE;
+ end
+ end
+ EIDLE : begin
+   if(dr == 1'b1) begin
+     nxtstate = STORE;
+   end
+ else begin
+   nxtstate = EIDLE;
+ end
+ end
+ default : begin
+   nxtstate = IDLE;
+ end
+ endcase
+ end
+ 
+ 
+ 
+ 
+ always_comb
+ begin
+   nxtm = 1'b0;
+   cnt_up = 1'b0;
+   op = 2'b00;
+   terr = 1'b0;
+   src1 = 4'b0000;
+   src2 = 4'b0000;
+   dest = 4'b0000;
+   case(state)
+     IDLE: begin
+       cnt_up = 1'b0;
+       op = 2'b00;
+       terr = 1'b0;
+       nxtm = 1'b0;
+       
+   end
+   STORE: begin
+      cnt_up = 1'b0;
+      op = 2'b10;
+      dest = 4'h5;
+      
+      terr = 1'b0;
+      nxtm = 1'b0;
+ end
+ SORT1: begin
+   cnt_up = 1'b1;
+   op = 2'b01;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h2;
+   dest = 4'h1;
+ end
+ SORT2: begin
+   cnt_up = 1'b0;
+   op = 2'b01;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h3;
+   
+   dest = 4'h2;
+   
+ end
+ SORT3: begin
+   cnt_up = 1'b0;
+   op = 2'b01;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h4;
+   dest = 4'h3;
+ end
+ SORT4: begin
+   cnt_up = 1'b0;
+   op = 2'b01;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h5;
+   dest = 4'h4;
+ end
+ ADD1: begin
+   cnt_up = 1'b0;
+   op = 2'b11;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h1;
+   src2 = 4'h2;
+   dest = 4'h0;
+ end
+ ADD2: begin
+   cnt_up = 1'b0;
+   op = 2'b11;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h0;
+   src2 = 4'h3;
+   dest = 4'h0;
+ end
+ ADD3: begin
+   cnt_up = 1'b0;
+   op = 2'b11;
+   terr = 1'b0;
+   nxtm = 1'b1;
+   src1 = 4'h0;
+   src2 = 4'h4;
+   dest = 4'h0;
+ end
+ EIDLE : begin
+   cnt_up = 1'b0;
+   op = 2'b00;
+   terr = 1'b1;
+   nxtm = 1'b0;
+ end
+ 
+ endcase
+ end
+ 
+ endmodule
+       

@@ -1,0 +1,93 @@
+#  
+#  
+#  
+#  
+# //  ModelSim SE-64 10.1b Apr 26 2012 Linux 2.6.32-504.8.1.el6.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim +no_glitch_msg -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB -Lf /home/ecegrid/a/ece337/Class0.5u/ECE337_IP/vsim -coverage -i -t ps mapped_work.tb_rcv_block 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: mapped/rcv_block.v(362): (vopt-2685) [TFMPC] - Too few port connections for 'F1'.  Expected 7, found 6.
+# ** Warning: mapped/rcv_block.v(362): (vopt-2718) [TFMPC] - Missing connection for port 'count_out'.
+# ** Warning: mapped/rcv_block.v(365): (vopt-2685) [TFMPC] - Too few port connections for 'F2'.  Expected 7, found 6.
+# ** Warning: mapped/rcv_block.v(365): (vopt-2718) [TFMPC] - Missing connection for port 'count_out'.
+# Loading sv_std.std
+# Loading work.tb_rcv_block(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.math_real(body)
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.dffsr(metastabilitywrapperarch)#1
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.prim(body)
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.dffsr_core(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.invx2(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.nor2x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.aoi22x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.oai21x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.nand2x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.oai22x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.invx1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.aoi21x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.bufx2(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.nand3x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.and2x2(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.mux2x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.xnor2x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.or2x2(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.xor2x1(behavioral)#1
+# Loading /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work.invx4(behavioral)#1
+add wave *
+run 500 ns
+# ** Warning: */DFFSR_CORE HOLD High VIOLATION ON D WITH RESPECT TO CLK;
+#   Expected := 0.094 ns; Observed := 0 ns; At : 8.938 ns
+#    Time: 8938 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/sync_phase_reg/CELL_CORE
+# ** Warning: DFFSR instance grabbed an invalid value and is propagating a metastable value
+#    Time: 11910 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: DFFSR instance metastable output value decayed to a '1' value
+#    Time: 12050 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: */DFFSR_CORE HOLD High VIOLATION ON D WITH RESPECT TO CLK;
+#   Expected := 0.094 ns; Observed := 0 ns; At : 58.938 ns
+#    Time: 58938 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/sync_phase_reg/CELL_CORE
+# ** Warning: DFFSR instance grabbed an invalid value and is propagating a metastable value
+#    Time: 61910 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: DFFSR instance metastable output value decayed to a '0' value
+#    Time: 61948 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: */DFFSR_CORE HOLD High VIOLATION ON D WITH RESPECT TO CLK;
+#   Expected := 0.094 ns; Observed := 0 ns; At : 108.938 ns
+#    Time: 108938 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/sync_phase_reg/CELL_CORE
+# ** Warning: DFFSR instance grabbed an invalid value and is propagating a metastable value
+#    Time: 111910 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: DFFSR instance metastable output value decayed to a '1' value
+#    Time: 112046 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: */DFFSR_CORE HOLD High VIOLATION ON D WITH RESPECT TO CLK;
+#   Expected := 0.094 ns; Observed := 0 ns; At : 158.938 ns
+#    Time: 158938 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/sync_phase_reg/CELL_CORE
+# ** Warning: DFFSR instance grabbed an invalid value and is propagating a metastable value
+#    Time: 161910 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: DFFSR instance metastable output value decayed to a '0' value
+#    Time: 161945 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Info: Test case 1: Test data correctly received
+#    Time: 308750 ps  Scope: tb_rcv_block.TEST_PROC File: source/tb_rcv_block.sv Line: 144
+# ** Info: Test case 1: DUT correctly shows no framing error
+#    Time: 308750 ps  Scope: tb_rcv_block.TEST_PROC File: source/tb_rcv_block.sv Line: 148
+# ** Info: Test case 1: DUT correctly asserted the data ready flag
+#    Time: 308750 ps  Scope: tb_rcv_block.TEST_PROC File: source/tb_rcv_block.sv Line: 152
+# ** Info: Test case 1: DUT correctly shows no overrun error
+#    Time: 308750 ps  Scope: tb_rcv_block.TEST_PROC File: source/tb_rcv_block.sv Line: 156
+# ** Info: Test case 1: DUT correctly cleared the data ready flag
+#    Time: 312500 ps  Scope: tb_rcv_block.TEST_PROC File: source/tb_rcv_block.sv Line: 171
+# ** Warning: */DFFSR_CORE HOLD High VIOLATION ON D WITH RESPECT TO CLK;
+#   Expected := 0.094 ns; Observed := 0 ns; At : 321.438 ns
+#    Time: 321438 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/sync_phase_reg/CELL_CORE
+# ** Warning: DFFSR instance grabbed an invalid value and is propagating a metastable value
+#    Time: 324410 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg
+# ** Warning: DFFSR instance metastable output value decayed to a '1' value
+#    Time: 324527 ps  Iteration: 0  Instance: /tb_rcv_block/DUT/ST/new_sample_reg

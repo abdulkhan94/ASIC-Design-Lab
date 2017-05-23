@@ -1,0 +1,4 @@
+INCLUDE /home/ecegrid/a/mg22/cds.lib
+#Removed by ddDeleteObj: DEFINE My_layout ~/ece337//My_layout
+#Removed by ddDeleteObj: DEFINE My_layout1 ~/ece337//My_layout1
+DEFINE My_Layout /home/ecegrid/a/mg22/ece337/Lab7/My_Layout

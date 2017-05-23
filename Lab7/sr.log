@@ -1,0 +1,10 @@
+*** Begin SPECIAL ROUTE on Thu Mar  5 19:09:04 2015 ***
+SPECIAL ROUTE /package/eda/cadence/EDI91/tools/fe/bin/64bit/sroute version 9.1.148 db version 1.01 (64 bit)
+SPECIAL ROUTE compiled on 08/25/2009 15:16 (icmopt07)
+SPECIAL ROUTE ran on directory: /home/ecegrid/a/mg22/ece337/Lab7
+SPECIAL ROUTE ran on machine: ecegrid-thin6.ecn.purdue.edu (Linux 2.6.32-504.8.1.el6.x86_64 Opteron 2.00Ghz)
+
+Begin option processing ...
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 15.00 megs.
+
+*ERROR* No input specified!

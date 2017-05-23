@@ -1,0 +1,129 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : rcv_block
+Version: G-2012.06
+Date   : Mon Feb 16 12:49:50 2015
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: TM/F2/count_out_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: TM/F2/count_out_reg[1]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  TM/F2/count_out_reg[0]/CLK (DFFSR)       0.00       0.00 r
+  TM/F2/count_out_reg[0]/Q (DFFSR)         0.49       0.49 f
+  TM/F2/U27/Y (INVX2)                      0.15       0.64 r
+  TM/F2/U8/Y (INVX4)                       0.09       0.73 f
+  TM/F2/U16/Y (XNOR2X1)                    0.18       0.90 f
+  TM/F2/U9/Y (AND2X2)                      0.23       1.14 f
+  TM/F2/U33/Y (NAND3X1)                    0.14       1.28 r
+  TM/F2/U20/Y (BUFX2)                      0.23       1.51 r
+  TM/F2/U36/Y (AOI21X1)                    0.13       1.64 f
+  TM/F2/U37/Y (MUX2X1)                     0.12       1.77 r
+  TM/F2/count_out_reg[1]/D (DFFSR)         0.00       1.77 r
+  data arrival time                                   1.77
+
+  clock clk (rise edge)                    2.00       2.00
+  clock network delay (ideal)              0.00       2.00
+  TM/F2/count_out_reg[1]/CLK (DFFSR)       0.00       2.00 r
+  library setup time                      -0.22       1.78
+  data required time                                  1.78
+  -----------------------------------------------------------
+  data required time                                  1.78
+  data arrival time                                  -1.77
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1
+ 
+****************************************
+Report : area
+Design : rcv_block
+Version: G-2012.06
+Date   : Mon Feb 16 12:49:50 2015
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                           15
+Number of nets:                            31
+Number of cells:                            6
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          0
+Number of references:                       6
+
+Combinational area:       47025.000000
+Noncombinational area:    57024.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:          104049.000000
+Total area:                 undefined
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : rcv_block
+Version: G-2012.06
+Date   : Mon Feb 16 12:49:50 2015
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+rcv_block                                 2.849   41.235   32.503   44.084 100.0
+  TM (timer)                              2.444   13.543   14.435   15.988  36.3
+    F2 (flex_counter_0)                   0.201    5.332    6.919    5.534  12.6
+    F1 (flex_counter_1)                   2.243    8.211    7.517   10.454  23.7
+  RC (rcu)                                0.189    3.320    3.001    3.509   8.0
+  DT (rx_data_buff)                    1.58e-03   10.348    6.645   10.350  23.5
+  SR (sr_9bit)                            0.138    9.407    6.003    9.544  21.7
+    SH (flex_stp_sr_NUM_BITS9_SHIFT_MSB0)
+                                          0.138    9.407    6.003    9.544  21.7
+  SP (stop_bit_chk)                    2.58e-03    1.027    0.737    1.029   2.3
+  ST (start_bit_det)                   7.38e-02    3.591    1.681    3.664   8.3
+1

@@ -1,0 +1,20 @@
+VERSION {1.0}
+PTDEF {instance} {pin} {cell} {edge} {clock_edge} {clock} {phase}
+BANNER
+  {Module} {lab7_layout_design}
+  {Timing} {LATE}
+  {Slew Propagation} {WORST}
+  {Operating Condition} {typical}
+  {PVT Mode} {max}
+  {Tree Type} {worst_case}
+  {Process} {1.000}
+  {Voltage} {5.000}
+  {Temperature} {25.000}
+  {time unit} {1.000 ns}
+  {capacitance unit} {1.000 pF}
+  {resistance unit} {1.000 kOhm}
+  {TOOL} {v09.11-s084_1 ((64bit) 04/26/2010 12:41 (Linux 2.6))}
+  {DATE} {March 05, 2015}
+END_BANNER
+No constrained timing paths with given description found.
+

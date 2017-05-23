@@ -1,0 +1,82 @@
+
+// $Id: $
+// File name:   flex_pts_sr.sv
+// Created:     1/29/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: parallel to serial
+module flex_pts_sr
+  #(
+  parameter NUM_BITS = 4,
+  parameter SHIFT_MSB = 1
+  )
+  (
+  input wire clk,
+  input wire n_rst,
+  input wire shift_enable,
+  input wire load_enable,
+  input wire [NUM_BITS - 1:0] parallel_in,
+  output wire serial_out
+  );
+  //reg nxt;
+  reg [NUM_BITS - 1:0] temp;
+  reg [NUM_BITS - 1:0] next;
+  //reg prev
+  
+  
+  always_ff @ (negedge n_rst, posedge clk)
+  begin
+    if (n_rst == 1'b0)
+      //serial_out <= 1'b1;
+      temp[NUM_BITS -1 :0] <= '1;
+    else
+      //serial_out <= nxt;
+      temp <= next;
+    end
+  
+  
+  always_comb
+  begin
+    //nxt = serial_out;
+    //temp = parallel_in;
+    next = temp;
+    //serial_out = 1;
+    if (load_enable == 1)
+      begin
+        next = parallel_in;
+        //serial_out = prev;
+        //serial_out = 0;
+      end
+  else if(shift_enable == 1 && SHIFT_MSB == 1 && load_enable == 0 && n_rst == 1)
+      begin
+        next[NUM_BITS - 1:1] = temp[NUM_BITS - 2:0];
+        next[0] = 1;
+       // serial_out = temp[NUM_BITS - 1];
+        //prev = serial_out;
+      end
+    else if(shift_enable == 1 && SHIFT_MSB == 0 && load_enable == 0)
+      begin
+        next[NUM_BITS - 2:0] = temp[NUM_BITS - 1:1];
+        next[NUM_BITS -1 ] = 1;
+        //serial_out = temp[0];
+        //prev = serial_out;
+      end
+    //else if(load_enable == 1 && shift_enable == 1)
+      //begin
+       //serial_out = 1;
+       //serial_out = prev;
+      //end
+    //else if(shift_enable == 0 && load_enable == 0)
+      //begin
+        //serial_out = parallel_in[0];
+        //serial_out = prev;
+      //end
+    end
+    
+    if(SHIFT_MSB == 1)
+      assign serial_out = temp[NUM_BITS - 1];
+    else
+      assign serial_out = temp[0];
+      
+  endmodule

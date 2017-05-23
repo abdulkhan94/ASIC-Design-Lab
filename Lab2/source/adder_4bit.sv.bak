@@ -1,0 +1,7 @@
+// $Id: $
+// File name:   adder_4bit.sv
+// Created:     1/21/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: 4 bit adder.

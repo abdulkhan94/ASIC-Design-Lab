@@ -1,0 +1,144 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/ecegrid/a/mg22/ece337/Lab4
+T_opt
+V>XYCKTNSfgl5Tg;S_Hmbm1
+04 17 4 work tb_avg_four_image fast 0
+=1-00144f406b5c-54d9b83b-a75d9-108b
+o-quiet -auto_acc_if_foreign -work source_work -L /home/ecegrid/a/ece337/Class0.5u/ECE337_IP/vsim -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB -Lf /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work
+n@_opt
+OL;O;10.1b;51
+vavg_four
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+IC1OGCfJ9nK<:Dbb1BZ>zk2
+VAZFzXzFd3URhJGaI<7H_J0
+S1
+Z2 d/home/ecegrid/a/mg22/ece337/Lab4
+w1423546914
+8source/avg_four.sv
+Fsource/avg_four.sv
+L0 9
+Z3 OL;L;10.1b;51
+r1
+31
+Z4 o-work source_work
+Z5 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverFEC 0 CoverShortCircuit 0
+!s100 <I]:2RGR<U<d=R^8Y4Yc<2
+!s105 avg_four_sv_unit
+!s108 1423554609.276954
+!s107 source/avg_four.sv|
+!s90 -work|source_work|source/avg_four.sv|
+!i10b 1
+!s85 0
+vcontroller
+R1
+I`RkD8I>]W7=Y6?DOg6>fO2
+VY?3_X_IL]M1R;ckXeFklP1
+S1
+R2
+w1423552006
+8source/controller.sv
+Fsource/controller.sv
+L0 8
+R3
+r1
+31
+R4
+R5
+!s100 hcRI;I<nZe>2D@[:bJi_T3
+!s105 controller_sv_unit
+!s108 1423554610.048246
+!s107 source/controller.sv|
+!s90 -work|source_work|source/controller.sv|
+!i10b 1
+!s85 0
+vcounter
+R1
+IOO@S?i4Q>k9`SUhnoGk8B2
+VI5hdejR5]=S0bT>E60WA]3
+S1
+R2
+w1423546981
+8source/counter.sv
+Fsource/counter.sv
+L0 9
+R3
+r1
+31
+R4
+R5
+!s100 :g<G`=7CRmof8AWKKk<=F3
+!s105 counter_sv_unit
+!s108 1423554609.852770
+!s107 source/counter.sv|
+!s90 -work|source_work|source/counter.sv|
+!i10b 1
+!s85 0
+vflex_counter
+R1
+IcU62RJ2Q:=1^P`6JFYYTD0
+V]UHBMdi:701aXiNBF;o463
+S1
+R2
+Z6 w1423092460
+8source/flex_counter.sv
+Fsource/flex_counter.sv
+L0 8
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 Q95jRnInj7AMIDdBXk7c;0
+!s105 flex_counter_sv_unit
+!s85 0
+!s108 1423554610.219982
+!s107 source/flex_counter.sv|
+!s90 -work|source_work|source/flex_counter.sv|
+vsync
+R1
+IPA4mEI[zlV:M8Q;<hdoc22
+VQO61:BFGSR;[4OZZj0`bb1
+S1
+R2
+R6
+8source/sync.sv
+Fsource/sync.sv
+L0 8
+R3
+r1
+31
+R4
+R5
+!s100 ?iHg`OcIkU?Md8BRUM9;U3
+!s105 sync_sv_unit
+!s108 1423554609.675765
+!s107 source/sync.sv|
+!s90 -work|source_work|source/sync.sv|
+!i10b 1
+!s85 0
+vtb_avg_four_image
+R1
+IXiO>5zQilWHk`7CfVQJH;2
+Vj6QOkTQdoAk@izLz_C55J3
+S1
+R2
+R6
+8source/tb_avg_four_image.sv
+Fsource/tb_avg_four_image.sv
+L0 12
+R3
+r1
+31
+R4
+R5
+!s100 MNk7:`]SA09[c]XXJ;[c^0
+!s105 tb_avg_four_image_sv_unit
+!s108 1423554609.466847
+!s107 source/tb_avg_four_image.sv|
+!s90 -work|source_work|source/tb_avg_four_image.sv|
+!i10b 1
+!s85 0

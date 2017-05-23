@@ -1,0 +1,20 @@
+// Verilog for ECE337 Lab 2
+
+module sensor_s
+(
+	input wire [3:0] sensors,
+	output wire error
+);
+wire mid1;
+wire mid2;
+wire mid3;
+
+and A1 (mid1, sensors[1], sensors[2]);
+and A2 (mid2, sensors[1], sensors[3]);
+or A3 (mid3, sensors[0], mid1);
+or A4 (error, mid3, mid2);
+
+
+
+	
+endmodule

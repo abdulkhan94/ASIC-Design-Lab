@@ -1,0 +1,18 @@
+reg packet_done;
+reg shift_strobe;
+
+if n_reset == 0
+	reset all flip flops
+else
+	if(enable_timer == 1)
+		count = 1
+		sbc_clear = 0
+		flex_counter(.clk(clk),.n_rst(n_reset), .count_enable(count), .rollover_val(10'd10), .rollover_flag(shift_strobe);
+		
+			
+
+		flex_counter(.clk(clk),.n_rst(n_reset),.count_enable(shift_strobe),.rollover_val(4'b1001),.rollover_flag(packet_done);
+	
+	
+	end
+end

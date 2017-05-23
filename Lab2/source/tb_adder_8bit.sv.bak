@@ -1,0 +1,7 @@
+// $Id: $
+// File name:   tb_adder_8bit.sv
+// Created:     1/22/2015
+// Author:      Parneet Kaur Ahuja
+// Lab Section: 01
+// Version:     1.0  Initial Design Entry
+// Description: 8 bit adder

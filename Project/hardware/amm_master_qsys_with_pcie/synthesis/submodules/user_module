@@ -1,0 +1,466 @@
+// user_module : Acts as an avalon slave to receive input commands from PCIE IP
+
+module user_module #(
+	parameter MASTER_ADDRESSWIDTH = 26 ,  // ADDRESSWIDTH specifies how many addresses the Master can address 
+	parameter SLAVE_ADDRESSWIDTH = 3 ,  // ADDRESSWIDTH specifies how many addresses the slave needs to be mapped to
+	parameter DATAWIDTH = 32 ,    // DATAWIDTH specifies the data width. Default 32 bits
+	parameter NUMREGS = 8 ,       // Number of Internal Registers for Custom Logic
+	parameter REGWIDTH = 32      // Data Width for the Internal Registers. Default 32 bits
+)	
+(	
+	input logic  clk,
+        input logic  reset_n,
+	
+	// Interface to Top Level
+	input logic rdwr_cntl,				// Control Read or Write to a slave module.
+	input logic n_action,				// Trigger the Read or Write. Additional control to avoid continuous transactions. Not a required signal. Can and should be removed for actual application.
+	output logic[15:0] debug_flag,
+	input logic add_data_sel,			// Interfaced to switch. Selects either Data or Address to be displayed on the Seven Segment Displays.
+	input logic [MASTER_ADDRESSWIDTH-1:0] rdwr_address,	// read_address if required to be sent from another block. Can be unused if consecutive reads are required.
+	output logic [DATAWIDTH-1:0] display_data,	
+
+	// Bus Slave Interface
+        input logic [SLAVE_ADDRESSWIDTH-1:0] slave_address,
+        input logic [DATAWIDTH-1:0] slave_writedata,
+        input logic  slave_write,
+        input logic  slave_read,
+        input logic  slave_chipselect,
+//        output logic  slave_readdatavalid, // These signals are for variable latency reads. 
+//	output logic slave_waitrequest,   // See the Avalon Specifications on how to use them.
+        output logic [DATAWIDTH-1:0] slave_readdata,
+
+	// Bus Master Interface
+        output logic [MASTER_ADDRESSWIDTH-1:0] master_address,
+        output logic [DATAWIDTH-1:0] master_writedata,
+        output logic  master_write,
+        output logic  master_read,
+        input logic [DATAWIDTH-1:0] master_readdata,
+        input logic  master_readdatavalid,
+        input logic  master_waitrequest
+);
+
+parameter BYTEENABLEWIDTH = 4;  //Used to increment the address by 4
+//parameter NEXTI = 1;
+parameter START_BYTE = 32'h00000053;
+parameter SFIRST_BYTE = 32'h00000012;
+parameter INI_WRITE_ADDR = 32'h08500000;
+//parameter INI_READ_BOT_ADDR = 32'h08001000;
+//parameter INI_READ_SECOND_ADDR = 32'h08000800;
+parameter INI_READ_FIRST_ADDR = 32'h08000000;
+
+logic [MASTER_ADDRESSWIDTH-1:0] address, nextAddress, r_address,next_r_address,i_address,next_i_address;
+logic [DATAWIDTH-1:0] nextRead_data, read_data;
+logic [DATAWIDTH-1:0] nextData, wr_data;
+logic [NUMREGS-1:0][REGWIDTH-1:0] csr_registers;  // Command and Status Registers (CSR) for custom logic 
+typedef enum {IDLE, INI_READ,INI_READ1,INI_READ2,ADDR_LOAD,FIRST_READ_REQ,FIRST_READ_DATA,FIRST_READ_DATA1,PIXEL_WAIT,PIXEL_WRITE,PIXEL_WRITE1,ADDR_INC} state_t;
+state_t state, nextState;
+   logic [3:0] i; 
+	logic [3:0] next_i;
+	logic [3:0] next_j;
+   logic [3:0] j;
+   
+   logic [15:0] sample1;
+    logic [15:0] sample2;
+    logic [15:0] sample3;
+    logic [15:0] sample4;
+    logic [15:0] sample5;
+    logic [15:0] sample6;
+    logic [15:0] sample7;
+    logic [15:0] sample8;
+    logic [15:0] next_sample1;
+    logic [15:0] next_sample2;
+    logic [15:0] next_sample3;
+    logic [15:0] next_sample4;
+    logic [15:0] next_sample5;
+    logic [15:0] next_sample6;
+    logic [15:0] next_sample7;
+    logic [15:0] next_sample8;
+   
+
+    logic [15:0] out1;
+    logic [15:0] out2;
+    logic [15:0] out3;
+    logic [15:0] out4;
+    logic [15:0] out5;
+    logic [15:0] out6;
+    logic [15:0] out7;
+    logic [15:0] out8;
+   
+   
+   
+
+   
+   
+
+   
+
+
+logic w_buffer_load,w_buffer_clear;
+logic w_addr_load;
+
+logic w_flag_clear;
+logic [31:0] w_load_size;
+
+logic w_output_load;
+
+assign display_data = (add_data_sel && rdwr_cntl) ? debug_flag : (add_data_sel && ~rdwr_cntl) ? address : r_address;
+ first_levelu FIRST(
+	//inputs
+	.clk(clk),
+	.n_rst(reset_n),
+	.sample1(sample1),
+	 .sample2(sample2),
+       	.sample3(sample3),
+	.sample4(sample4),
+	.sample5(sample5),
+	.sample6(sample6),
+	.sample7(sample7),
+	.sample8(sample8),
+		    
+		    
+	.buffer_clear(w_buffer_clear),
+
+	.w_load_size(w_load_size),	    
+	
+	.w_flag_clear(w_flag_clear),
+	.w_output_load(w_output_load),
+	
+//	.w_done(w_done),
+	.w_wav_done(w_wav_done),
+	.data_out1(out1),
+	.data_out2(out2),
+       .data_out3(out3),
+      .data_out4(out4),
+      .data_out5(out5),
+      .data_out6(out6),
+     .data_out7(out7),
+     .data_out8(out8)
+		    
+);
+
+// Slave side 
+always_ff @ ( posedge clk ) begin 
+  if(!reset_n)
+  	begin
+    		slave_readdata <= 32'h0;
+ 	      	csr_registers <= '0;
+  	end
+  else 
+  	begin
+  	  if(slave_write && slave_chipselect && (slave_address >= 0) && (slave_address < NUMREGS))
+  	  	begin
+  	  	   csr_registers[slave_address] <= slave_writedata;  // Write a value to a CSR register
+  	  	end
+  	  else if(slave_read && slave_chipselect  && (slave_address >= 0) && (slave_address < NUMREGS)) // reading a CSR Register
+  	    	begin
+       		// Send a value being requested by a master. 
+       		// If the computation is small you may compute directly and send it out to the master.
+  	    	   slave_readdata <= csr_registers[slave_address];
+  	    	end
+	else if (w_wav_done) 
+		begin
+		 	csr_registers[0]<= SFIRST_BYTE;
+		end
+  	 end
+end
+
+
+
+
+// Master Side
+
+always_ff @ ( posedge clk ) begin 
+	if (!reset_n) begin 
+		address <= INI_WRITE_ADDR;
+		r_address <= INI_READ_FIRST_ADDR;
+		state <= IDLE;
+		read_data <= 32'hFEEDFEED;  
+		i <= 0;
+		j <= 0;
+	   sample1 <= '0;
+		sample2 <= '0;
+		sample3 <= '0;
+		sample4 <= '0;
+		sample5 <= '0;
+		sample6 <= '0;
+		sample7 <= '0;
+		sample8 <= '0;
+	end else begin 
+		state <= nextState;
+		address <= nextAddress;
+		r_address <= next_r_address;
+		read_data <= nextRead_data;
+		i <= next_i;
+		j <= next_j;
+	   sample1 <= next_sample1;
+		sample2 <= next_sample2;
+		sample3 <= next_sample3;
+		sample4 <= next_sample4;
+		sample5 <= next_sample5;
+		sample6 <= next_sample6;
+		sample7 <= next_sample7;
+		sample8 <= next_sample8;
+	        
+	end
+end
+
+// Next State Logic 
+always_comb begin 
+	nextState = state;
+	nextAddress = address;
+	next_r_address = r_address;
+	nextRead_data = read_data;
+	debug_flag = 0;
+	case( state ) 
+		IDLE: begin
+			next_r_address = INI_READ_FIRST_ADDR; 
+			nextAddress = INI_WRITE_ADDR;
+			debug_flag = 1;
+			if (csr_registers[0] == START_BYTE ) begin //slave_address = 0 for start/sfirst byte
+//			if (csr_registers[0] == START_BYTE && !n_action) begin //slave_address = 0 for start/sfirst byte
+				nextState = INI_READ;
+			end
+		end
+//THIS REQUIRES APP.C FIRST 
+		INI_READ: begin  //read slave register and load info into ImageSpecReg
+			nextState = INI_READ1;
+			debug_flag = 2;
+			nextRead_data = csr_registers[1];
+		end
+		INI_READ1: begin
+			nextState = INI_READ2;
+			debug_flag = 3;
+			//nextRead_data = csr_registers[2];
+		end
+		INI_READ2: begin
+			nextState = ADDR_LOAD;
+			debug_flag = 4;
+		//	nextRead_data = csr_registers[3];
+		end
+		ADDR_LOAD: begin
+			nextState = FIRST_READ_REQ;
+			debug_flag = 5 ;
+		end
+		FIRST_READ_REQ: begin
+			if (!master_waitrequest) begin
+				nextState = FIRST_READ_DATA;
+			 	debug_flag = 6 ;
+			end
+		end
+		FIRST_READ_DATA: begin
+			if ( master_readdatavalid) begin
+				nextRead_data = master_readdata;
+				nextState = FIRST_READ_DATA1;
+			 	debug_flag = 7 ;
+			end
+		end // case: FIRST_READ_DATA
+	 	 FIRST_READ_DATA1: begin
+	 	    if(w_buffer_load) begin
+	 	       nextState = PIXEL_WAIT;
+	 	    end
+	 	    else begin
+	 	       nextState = FIRST_READ_REQ;
+	 	       next_r_address = r_address + BYTEENABLEWIDTH;
+	 	    end
+	 	 end
+		PIXEL_WAIT: begin
+			 	debug_flag = 8 ;
+		   if(w_output_load) begin
+			nextState = PIXEL_WRITE;
+		   end
+		end
+		PIXEL_WRITE: begin
+			if (!master_waitrequest) begin
+				if (w_wav_done == 1/*address == 32'h08600000*/) begin
+					nextState = IDLE;  //slave module takes care of writing sfirstbyte
+					nextAddress = INI_WRITE_ADDR;
+				end 
+			end
+			else begin
+   				nextState = PIXEL_WRITE1;
+			end		
+		end // case: PIXEL_WRITE
+	  	PIXEL_WRITE1: begin
+		  if(w_wav_done == 1) begin
+	  	    nextState = IDLE;
+	  	   end
+	  	   else if(w_flag_clear) begin
+	  	      nextState = ADDR_INC;
+	  	   end
+	  	   else begin
+	  	       	nextAddress =  address + BYTEENABLEWIDTH;
+	  	        nextState = PIXEL_WRITE;
+	  	   end
+	  	 end
+		ADDR_INC: begin
+			nextAddress =  address + BYTEENABLEWIDTH;
+			next_r_address = r_address + BYTEENABLEWIDTH;
+			nextState = FIRST_READ_REQ;			
+			 debug_flag = 11 ;
+		end	
+	endcase
+end
+
+// Output Logic 
+
+always_comb begin 
+	master_write = 1'b0;
+	master_read = 1'b0;
+	master_writedata = 32'h0;
+	master_address = 32'hdeadbeef;
+	
+	w_flag_clear = 1'b0;
+//	w_output_load = 1'b0;
+
+
+	w_buffer_load = 0;
+	w_buffer_clear = 0;
+	w_load_size = 0;
+   next_i = i;
+	next_j = j;
+	next_sample1 = sample1;
+	next_sample2 = sample2;
+	next_sample3 = sample3;
+	next_sample4 = sample4;
+	next_sample5 = sample5;
+	next_sample6 = sample6;
+	next_sample7 = sample7;
+	next_sample8 = sample8 ;
+
+	
+	
+	case(state) 
+		IDLE: begin
+		//	w_buffer_clear = 1;
+			w_flag_clear = 0;
+		  // i = 0;
+		   
+		end
+		INI_READ: begin  //read slave register and load info into ImageSpecReg
+		   	w_load_size = nextRead_data;
+		end
+		INI_READ1: begin
+		//	w_load_size = nextRead_data;
+		end
+		INI_READ2: begin
+		//w_load_size = 1;
+		end
+		
+		ADDR_LOAD: begin
+		//	w_addr_load = 1;
+		   next_i = 0;
+		   
+		end
+	
+		FIRST_READ_REQ: begin
+			//w_buffer_load = 1; //load second data into pixel register
+			master_address = r_address;
+			master_read = 1;
+		 
+
+		   
+		end
+		FIRST_READ_DATA1: begin
+		   next_j = 0;
+		   
+		     if(next_i == 0) begin
+		      next_sample1 = nextRead_data[15:0];
+		   end
+		   else if (next_i == 1) begin
+		      next_sample2 = nextRead_data[15:0];
+		   end
+		   else if (next_i == 2) begin
+		     next_sample3 = nextRead_data[15:0];
+		   end
+		     else if (next_i == 3) begin
+		      next_sample4 = nextRead_data[15:0];
+		     end
+		     else if (next_i == 4) begin
+		      next_sample5 = nextRead_data[15:0];
+		     end
+		    else if (next_i == 5) begin
+		      next_sample6 = nextRead_data[15:0];
+		    end
+		    else if (next_i == 6) begin
+		      next_sample7 = nextRead_data[15:0];
+		    end
+		    else if (next_i == 7) begin
+		      next_sample8 = read_data[15:0];
+		       //i = 0;
+		       
+			   w_buffer_load = 1;
+
+		       
+		    end
+		   next_i = i+ 1;
+		   
+
+		end // case: FIRST_READ_DATA
+	  FIRST_READ_DATA: begin
+	   //  w_buffer_load = 1;
+	     end
+		PIXEL_WAIT: begin
+			w_buffer_load = 0; //load first data into pixel register and allow arith to compute the result
+			//w_count_enable = 1;
+		        w_buffer_clear = 1;
+		end
+		
+	
+		
+		PIXEL_WRITE1: begin
+			master_write = 1;
+			master_address =  address;
+		        		   if(next_j == 0) begin
+		      master_writedata = out1;
+		   end
+		   else if(next_j == 1) begin
+		     master_writedata = out2;
+
+		end
+	   else if(next_j == 2) begin
+		     master_writedata = out3;
+
+		end
+	   else if(next_j == 3) begin
+		     master_writedata = out4;
+
+		end
+	   else if(next_j == 4) begin
+		     master_writedata = out5;
+
+		end
+	   else if(next_j == 5) begin
+		     master_writedata = out6;
+
+		end
+	   else if(next_j == 6) begin
+		     master_writedata = out7;
+
+		end
+	   else if(next_j == 7) begin
+		     master_writedata = out8;
+	      w_flag_clear = 1;
+	      
+            end // UNMATCHED !!
+		   next_j = j+ 1;
+		   
+
+	  
+	  
+			
+		end
+	PIXEL_WRITE: begin
+	  // w_flag_clear = 1;
+end	
+		ADDR_INC: begin
+		
+		end
+				
+	endcase
+end
+
+
+endmodule
+
+
+

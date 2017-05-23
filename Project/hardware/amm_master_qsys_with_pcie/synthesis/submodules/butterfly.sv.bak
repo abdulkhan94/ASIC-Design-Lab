@@ -1,0 +1,33 @@
+module butterfly
+  (
+   input wire 	     clk,
+   input wire 	     reset,
+   input wire [15:0]  Xar, Xai, Xbr, Xbi, 
+   input wire [6:0]  cos, sin,
+   output reg [23:0] Yar, Yai, Ybr, Ybi
+   );
+
+   reg [23:0] 	     a1, a2, a3, a4;
+   reg [23:0] 	     a11, a22,a33,a44;
+
+  always @ (posedge clk)
+  begin
+	a1 <=  ( (Xbr)* (cos));
+	a2 <=  ( (Xbr)* (sin));
+	a3 <=  ( (Xbi)* (cos));
+	a4 <=  ( (Xbi)* (sin));
+	
+	a11<= (Xar<<16);    //shift by 30 
+	a22<= (Xai<<16);
+	a33<= (Xbr<<16);
+	a44<= (Xbi<<16);
+	//a11 = 0;
+	//a22 = 0;
+  end
+
+   assign Yar =  ( (a11)+ (a1)+ (a4));
+   assign Yai =  ( (a22)+ (a3)- (a2));
+   assign Ybr =  ( (a33)- (a1)+ (a4));
+   assign Ybi =  ( (a44)- (a3)- (a2));
+
+endmodule

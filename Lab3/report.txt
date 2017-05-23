@@ -1,0 +1,620 @@
+Coverage Report Summary Data by instance
+
+Total Coverage By Instance (filtered view): 51.0%
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[15]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[14]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[13]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[12]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[11]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[10]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[9]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[8]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[7]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[6]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[5]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[4]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[3]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[2]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[1]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Generate Block: /tb_adder_16bit/DUT/genblk1[0]
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[15]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[15]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[14]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[14]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[13]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[13]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[12]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[12]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[11]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[11]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[10]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[10]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[9]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[9]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[8]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[8]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[7]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[7]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[6]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[6]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[5]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[5]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[4]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[4]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[3]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[3]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[2]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[2]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[1]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[1]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0/genblk1[0]/Ii
+Design Unit: work.adder_1bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        3         3         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 10         2         8      20.0
+
+Generate Block: /tb_adder_16bit/DUT/A0/genblk1[0]
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit/DUT/A0
+Design Unit: work.adder_nbit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        7         7         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                 34         2        32       5.8
+
+Instance: /tb_adder_16bit/DUT
+Design Unit: work.adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        5         5         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+Instance: /tb_adder_16bit
+Design Unit: work.tb_adder_16bit
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       57        17        40      29.8
+    Branches                    20         4        16      20.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                264        51       213      19.3
+
+
+NEVER FAILED: 100.0%  ASSERTIONS: 161
+
+
